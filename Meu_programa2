@@ -1,1 +1,7 @@
-print ("ola mundo")
+nome = "Erivaldo"
+idade = 34
+cidade = "manaus"
+curso = "Tecnico_de_informatica"
+
+print ("Eu", nome,  "Gostaria de voltar a ter a idade de",  idade, "não mais morando em", cidade, "e fazendo o curso", curso)
+
