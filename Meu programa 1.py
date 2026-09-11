@@ -1,3 +1,3 @@
 print ("ola turma")
 print ("Tecnico de informatica")
-print ("Estou começãmdo a programar em Python")
+print ("Estou começando a programar em Python")
