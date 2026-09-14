@@ -1,9 +1,13 @@
 print("SISTEMA PARA BIBLIOTECA")
-
+print()
 print("1 - Cadastrar Livros ")
+print()
 print("2 - Cadastrar Alunos ")
+print()
 print("3 - Realizar Emprestimo ")
+print()
 print("4 - Sair") 
+print() 
 
 opcao = int(input("Escolha e digite a opção desejada = " ))
 
@@ -12,11 +16,17 @@ if opcao ==1:
     for i in range(quantidade):
         print(f"----- LIVRO {i + 1} -----")
 
-        codigo =str(input("Codigo do livro: "))
+        codigo =str(input("Codigo do livro: ")) 
         titulo =str(input("Titulo do livro: "))
         autor =str(input("Nome do autor: "))
         ano = int(input("Ano da publicação: "))
+        if len(str(ano))==4: 
+            print("Ano válido!")
+        else:
+            print("O ano deve conter 4 digitos numericos")
+
         estoque = int(input("Quantidade disponivel="))
+        print()
         print("Parabens, Livro Cadrastado com sucesso")
 
 elif opcao ==2:
@@ -43,7 +53,7 @@ elif opcao ==3:
             
             print("Informações do seu emprestimo")
             print("Codigo do Livro:", codigo)
-            print("Matricula do Aluno:", matricula)
+            print(f"Matricula do Aluno:, {matricula}")
             print("Emprestimo realizado com sucesso")
 
 elif opcao ==4:
