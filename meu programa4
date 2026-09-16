@@ -1,0 +1,7 @@
+nome = "Erivaldo"
+idade = 34
+curso = "Tecnico de informatica"
+aprovação = true
+
+print ( "Cadastro de alunos")
+

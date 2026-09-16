@@ -1,0 +1,5 @@
+# a variavel for ( a variavel muda de valor a cada repetição)
+
+for numero in range(1,6):
+    dobro = numero*2
+    print(dobro)
