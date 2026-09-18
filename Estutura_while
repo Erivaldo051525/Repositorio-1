@@ -1,0 +1,78 @@
+#while com entrada do usuário
+
+"""
+contador = 1
+while contador <= 5:
+    print(contador)
+    contador = contador + 3
+"""
+#Testanto a senha com tentativas ilimitadas
+"""
+senha = ""
+while senha != "1234":
+    senha = input("Digite a senha: ")
+    if senha == "1234":
+        print("Acesso permitido!")
+    else:
+        print("Tente novamente")
+"""
+
+
+
+#Testando a senha com 3 tentativas
+"""
+senha_correta = "1234"
+tentativas = 0
+limite_tentativas = 3
+
+while tentativas < limite_tentativas:
+    senha = input("Digite a senha: ")
+    
+    if senha == senha_correta:
+        print("🔓 Acesso permitido!")
+        break  # Interrompe o loop imediatamente se a senha estiver certa
+    
+    else:
+        tentativas = tentativas+1
+        tentativas_restantes = limite_tentativas - tentativas
+        
+        if tentativas_restantes > 0:
+            print(f"❌ Senha incorreta. Você tem mais {tentativas_restantes} tentativa(s).")
+        else:
+            print("🚨 Conta bloqueada! Limite de tentativas excedido.")
+            
+"""
+
+#while para repetir uma quantidade determinada de vezes
+"""
+quantidade = int(input("Quantos alunos? "))
+contador = 1
+while contador <= quantidade:
+    nome = input("Digite o nome do aluno: ")
+    print("Aluno cadastrado:", nome)
+    contador = contador + 1
+"""
+
+
+#while com menu
+opcao = 0
+while opcao != 3:
+    print("\n1 - Cadastrar aluno")
+    print("2 - Listar alunos")
+    print("3 - Sair")
+    opcao = int(input("Escolha uma opção: "))
+    
+    if opcao == 1:
+        print("Cadastro de aluno")
+    elif opcao == 2:
+        print("Lista de alunos")
+    elif opcao == 3:
+        print("Saindo...")
+    else:
+        print("Opção inválida!")
+    elif opcao == 3:
+    print("Saindo...")
+    else:
+    print("Opção inválida!")
+
+    

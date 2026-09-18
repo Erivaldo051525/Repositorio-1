@@ -7,6 +7,7 @@ print()
 
 
 idades=[16, 17, 18, 20, 48, 60]
+idade=1
 for idade in idades:
     print(idades)
 
@@ -52,3 +53,4 @@ if nome in nomes:
     print("Nome encontrado")
 else:
     print("Nome não encontrado")
+
