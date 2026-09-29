@@ -1,64 +1,137 @@
-livros = []
+biblioteca = []
 
 while True:
+    print("\n=== Secao livros ===")
+    print("1 - Cadastrar Livro")
+    print("2 - Listar Livros")
+    print("3 - Pesquisar Livro")
+    print("4 - Alterar Livro")
+    print("5 - Excluir Livro")
+    print("6 - Quantidade de Livros Cadastrados")
+    print("7 - Sair")
 
-    print("\n===== BIBLIOTECA =====")
-    print("1 - Cadastrar livro")
-    print("2 - Listar livros")
-    print("3 - Pesquisar livro")
-    print("4 - Excluir livro")
-    print("5 - Sair")
-    print("6 - Quantidade desse exemplar")
+    try:
+        selecione = int(input("Escolha uma opção: "))
+    except ValueError:
+        print("Erro: Digite apenas números válidos.")
+        continue
 
-    opcao = input("Digite uma opção: ")
+    # 1 - CADASTRAR LIVRO
+    if selecione == 1:
+        try:
+            codigo = int(input("Código do Livro: "))
+            
+            # Verifica se já existe um livro com o código informado
+            existe = False
+            for livro in biblioteca:
+                if livro["codigo"] == codigo:
+                    print("Erro: Já existe um livro cadastrado com este código.")
+                    existe = True
+                    break
 
-    if opcao == "1":
+            # Só cadastra se o código não existir na lista
+            if not existe:
+                titulo = input("Título do Livro: ").strip()
+                autor = input("Autor do Livro: ").strip()
+                ano = input("Ano do Livro: ").strip()
+                estoque = input("Estoque: ").strip()
 
-        titulo = input("Digite o título: ")
-        autor = input("Digite o autor: ")
-        quantidade = int(input("Digite a quantidade:2 "))
+                livro = {
+                    "codigo": codigo, 
+                    "titulo": titulo, 
+                    "autor": autor, 
+                    "ano": ano, 
+                    "estoque": estoque
+                }
 
-        livros.append([titulo, autor, quantidade])
+                biblioteca.append(livro)
+                print("Livro cadastrado com sucesso!")
+        except ValueError:
+            print("Erro: O código deve ser um número inteiro.")
 
-        print("Livro cadastrado!")
+    # 2 - LISTAR LIVROS
+    elif selecione == 2:
+        if not biblioteca:
+            print("Nenhum livro cadastrado.")
+        else:
+            print("\n--- LISTA DE LIVROS ---")
+            for livro in biblioteca:
+                print(f"Código: {livro['codigo']} | Título: {livro['titulo']} | Autor: {livro['autor']} | Ano: {livro['ano']} | Estoque: {livro['estoque']}")
 
-    elif opcao == "2":
+    # 3 - PESQUISAR LIVRO
+    elif selecione == 3:
+        try:
+            codigo = int(input("Digite o código do livro que deseja buscar: "))
+            encontrado = False
+            for livro in biblioteca:
+                if livro["codigo"] == codigo:
+                    print(f"Encontrado -> Código: {livro['codigo']} | Título: {livro['titulo']} | Autor: {livro['autor']}")
+                    encontrado = True
+                    break
+            if not encontrado:
+                print("Livro não encontrado.")
+        except ValueError:
+            print("Erro: Digite um código numérico válido.")
 
-        print("\n--- LIVROS CADASTRADOS ---")
+    # 4 - ALTERAR LIVRO
+    elif selecione == 4:
+        try:
+            codigo = int(input("Digite o código do livro a alterar: "))
+            encontrado = False
+            for livro in biblioteca:
+                if livro["codigo"] == codigo:
+                    livro["titulo"] = input("Novo Título: ").strip()
+                    livro["autor"] = input("Novo Autor: ").strip()
+                    livro["ano"] = input("Novo Ano: ").strip()
+                    livro["estoque"] = input("Novo Estoque: ").strip()
+                    print("Livro alterado com sucesso!")
+                    encontrado = True
+                    break
+            if not encontrado:
+                print("Livro não encontrado.")
+        except ValueError:
+            print("Erro: Digite um código numérico válido.")
 
-        for contador in livros:
-            print("Título:", contador[0])
-            print("Autor:", contador[1])
-            print("Quantidade:", contador[2])
+    # 5 - EXCLUIR LIVRO
+    elif selecione == 5:
+        try:
+            codigo = int(input("Digite o código do livro a excluir: "))
+            encontrado = False
+            for i, livro in enumerate(biblioteca):
+                if livro["codigo"] == codigo:
+                    del biblioteca[i]
+                    print("Livro excluído com sucesso!")
+                    encontrado = True
+                    break
+            if not encontrado:
+                print("Livro não encontrado.")
+        except ValueError:
+            print("Erro: Digite um código numérico válido.")
 
-    elif opcao == "3":
+    # 6 - QUANTIDADE DE LIVROS CADASTRADOS
+    elif selecione == 6:
+        print(f"\nTotal de livros cadastrados: {len(biblioteca)}")
 
-        pesquisa = input("Digite o título que deseja pesquisar: ")
-
-        for contador in livros:
-            if contador[0] == pesquisa:
-                print("Livro encontrado!")
-                print("Título:", contador[0])
-                print("Autor:", contador[1])
-                print("Quantidade:", contador[2])
-                
-
-    elif opcao == "4":
-
-        pesquisa = input("Digite o título que deseja excluir: ")
-
-        
-        if contador[0] == pesquisa:
-            livros.remove(contador)
-            print("Livro excluído!")
-
-    9   
-    elif opcao == "5":
-
-        print("Programa encerrado.")
+    # 7 - SAIR
+    elif selecione == 7:
+        print("Saindo do sistema... Até logo!")
         break
-    
-    
-    else:
 
-        print("Opção inválida!")
+    else:
+        print("Opção inválida. Escolha um número de 1 a 7.")
+
+
+
+    elif selecione == 3:
+        try:
+            codigo = int(input("Digite o código do livro que deseja buscar: "))
+            encontrado = False
+            for livro in biblioteca:
+                if livro["codigo"] == codigo:
+                    print(f"Encontrado -> Código: {livro['codigo']} | Título: {livro['titulo']} | Autor: {livro['autor']}")
+                    encontrado = True
+                    break
+            if not encontrado:
+                print("Livro não encontrado.")
+        except ValueError:
+            print("Erro: Digite um código numérico válido.")

@@ -53,18 +53,24 @@ while True:
             for livro in biblioteca:
                 print(f"Código: {livro['codigo']} | Título: {livro['titulo']} | Autor: {livro['autor']}")
 
-    if selecione == 3:
-        codigo = int(input("Digite o código do livro que deseja buscar: "))
-        encontrado = False
-        for livro in biblioteca:
-            if livro["codigo"] == codigo:
-                print(f"Encontrado -> Código: {livro['codigo']} | Título: {livro['titulo']} | Autor: {livro['autor']}")
-                encontrado = True
-                break
-        if not encontrado:
-            print("Livro não encontrado.")
 
-    if selecione == "4":
+    elif selecione == 3:
+        try:
+            codigo = int(input("Digite o código do livro que deseja buscar: "))
+            encontrado = False
+            for livro in biblioteca:
+                if livro["codigo"] == codigo:
+                    print(f"Encontrado -> Código: {livro['codigo']} | Título: {livro['titulo']} | Autor: {livro['autor']}")
+                    encontrado = True
+                    break
+            if not encontrado:
+                print("Livro não encontrado.")
+        except ValueError:
+            print("Erro: Digite um código numérico válido.")
+
+
+      
+    if selecione == 4:
         codigo = int(input("Digite o código do livro a alterar: "))
         encontrado = False
         for livro in biblioteca:
